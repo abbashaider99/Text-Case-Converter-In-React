@@ -9,7 +9,7 @@ const CaseConverter = (props) => {
   const uppercaseHandler = () => {
     let changedText = text.toUpperCase();
     setText(changedText);
-    setCase("UpperCase")
+    setCase("UpperCase");
     console.log(react);
   };
 
@@ -17,7 +17,7 @@ const CaseConverter = (props) => {
   const lowercaseHandler = () => {
     let changedText = text.toLowerCase();
     setText(changedText);
-    setCase("LowerCase")
+    setCase("LowerCase");
   };
 
   const onChangeHandler = (event) => {
@@ -27,29 +27,28 @@ const CaseConverter = (props) => {
   document.title = casetitle;
 
   return (
+    <div className="wrapper">
     <div className="container">
-      <br />
       <h2>{props.heading}</h2>
-      <div className="mb-3">
-        <textarea
-          className="form-control mytext"
-          id="text-box"
-          rows="5"
-          value={text}
-          onChange={onChangeHandler}
-          placeholder="Please enter text here..."
-        ></textarea>
-        <br />
-        <button className="btn btn-primary mybtn" onClick={uppercaseHandler}>
-          Convert into UpperCase
-        </button>
-        &nbsp;
-        <button className="btn btn-info mybtn" onClick={lowercaseHandler}>
-          Convert into LowerCase
-        </button>
-      </div>
+      <textarea name="mytext" className="mytext" value={text} onChange={onChangeHandler} cols="100" rows="22" placeholder="Please enter text here..."></textarea>
+    </div>
+    <div className="btns">
+      <button className="btn-upr" onClick={uppercaseHandler}>Convert into UpperCase</button>
+      <button className="btn-lwr" onClick={lowercaseHandler}>Convert into LowerCase</button>
+    </div>
     </div>
   );
 };
+
+//PropsType
+
+// CaseConverter.prototype = {
+//   heading: PropTypes.string,
+//   // heading: PropTypes.string.isRequired
+// }
+
+// CaseConverter.defaultProps = {
+//   heading: 'In case we forget to pass props then it will take place'
+// }
 
 export default CaseConverter;
